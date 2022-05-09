@@ -1,0 +1,139 @@
+$homepageHigh:1750px;
+.homepage{
+    position: absolute;
+    display: flex;
+    top: 67px;
+    left: 0;
+    right: 0;
+    height: $homepageHigh;
+    background-color: #f7f7f7;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    //font-family: Montserrat,sans-serif;
+}
+.homepage-center{
+    display: flex;
+    position: absolute;
+    top: 50px;
+    width: 65%;
+    height: 1750px;
+   // border: 1px solid red;
+}
+.homepage-left{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 59.5%;
+    height: 1750px;
+    //justify-self: flex-start;
+    left: 0;
+    //border: 1px solid green;
+}
+.homepage-tooth-image{
+    width: 92%;
+    height: 350px;
+    //border: 1px solid blueviolet;
+}
+.homepage-tooth-image img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+}
+
+.homepage-right{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    right: 0;
+    height: 1050px;
+    border: 2px solid #af376d;
+    border-radius: 5px;
+}
+.heading-form{
+    position: relative;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.user-data-inputs{
+    position: relative;
+    //border: 1px solid black;
+    //padding: 0px 20px;
+    align-self: center;
+    width:90% ;
+}
+.section{
+    margin-top: 20px;
+}
+.label{
+    margin-left: 10px;
+}
+.input{
+    width: 97.9%;
+    height: 30px;  
+    margin-top: 3px;
+    padding-left: 10px; 
+    border: 1px solid #EEEEEE;
+    border-radius: 15px; 
+    background: #EEEEEE;
+}
+.input:focus{
+    outline-color:#af376d;
+}
+.user-data{
+    position: relative;
+    align-self: center;
+    width: 90%;
+    margin-top: 20px;
+}
+.section-check-radio{
+    margin: 7px;
+}
+.user-data textarea{
+    margin-top: 5px;
+    border: 1px solid #EEEEEE;
+    border-radius: 15px;
+    background: #EEEEEE;
+    resize: none;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+textarea:focus{
+    outline-color: #af376d;
+}
+.buttons{
+    position: relative;
+    align-self: center;
+    display: flex;
+    width: 90%;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.posaljite{
+    position: relative;
+    display: flex;
+    width: 35%;
+    height: 30px;
+    border: 1px solid #af376d;
+    border-radius: 15px;
+    background: #af376d;
+    color: white;
+    justify-content: center;
+    align-items: center;
+
+}
+.odustanite{
+    position: relative;
+    display: flex;
+    width: 35%;
+    height: 30px;
+    border: 1px solid #EEEEEE;
+    border-radius: 15px;
+    background: #EEEEEE;
+    justify-content: center;
+    align-items: center;
+}
