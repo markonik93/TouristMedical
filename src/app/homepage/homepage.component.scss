@@ -23,7 +23,7 @@ $homepageHigh:1750px;
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 59.5%;
+    width: 59%;
     height: 1750px;
     //justify-self: flex-start;
     left: 0;
@@ -31,7 +31,7 @@ $homepageHigh:1750px;
 }
 .homepage-tooth-image{
     width: 92%;
-    height: 350px;
+    height: 20%;
     //border: 1px solid blueviolet;
 }
 .homepage-tooth-image img{
@@ -49,7 +49,8 @@ $homepageHigh:1750px;
     flex-direction: column;
     width: 40%;
     right: 0;
-    height: 1100px;
+    //height: 1100px;
+    height: 62%;
     border: 2px solid #af376d;
     border-radius: 5px;
 }
@@ -96,6 +97,13 @@ $homepageHigh:1750px;
     margin: 7px;
     //border: 1px solid red;
 }
+.section-check-radio input[type=checkbox]{
+    background-image: url("../../assets/checkbox-btn-inactive.svg");
+}
+.section-check-radio input[type=checkbox]:checked{
+    background-color: red;
+    background-image: url("../../assets/checkbox-btn-active.svg");
+}
 .section-check-radio img{
     width: 20px;
     height: 20px;
@@ -109,12 +117,13 @@ $homepageHigh:1750px;
     background-color: #af376d;
 }
 .user-data textarea{
+    width: 97.9%;
     margin-top: 5px;
     border: 1px solid #EEEEEE;
     border-radius: 15px;
     background: #EEEEEE;
     resize: none;
-    padding-left: 10px;
+    padding-left: 5px;
     padding-top: 3px;
 }
 textarea:focus{
