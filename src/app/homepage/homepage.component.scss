@@ -49,7 +49,7 @@ $homepageHigh:1750px;
     flex-direction: column;
     width: 40%;
     right: 0;
-    height: 1050px;
+    height: 1100px;
     border: 2px solid #af376d;
     border-radius: 5px;
 }
@@ -91,7 +91,22 @@ $homepageHigh:1750px;
     margin-top: 20px;
 }
 .section-check-radio{
+    display: flex;
+    flex-direction: row;
     margin: 7px;
+    //border: 1px solid red;
+}
+.section-check-radio img{
+    width: 20px;
+    height: 20px;
+    //border: 1px solid yellow;
+}
+.section-check-radio span{
+    margin-left: 10px;
+    align-self: center;
+}
+.section-check-radio img:hover{
+    background-color: #af376d;
 }
 .user-data textarea{
     margin-top: 5px;

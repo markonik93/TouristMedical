@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>unchecked</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-11" transform="translate(-1052.000000, -822.000000)">
+            <g id="unchecked" transform="translate(1053.000000, 823.000000)">
+                <g id="check-mark-(1)" transform="translate(4.000000, 5.000000)" fill="#DBDBDB" fill-rule="nonzero">
+                    <path d="M13.5754509,0.530065522 C14.0293998,0.984014497 14.0293998,1.71986581 13.5754509,2.17358783 L5.77933124,9.96993448 C5.32538226,10.4236564 4.5897579,10.4236564 4.13580893,9.96993448 L0.424549132,6.25844766 C-0.0293998428,5.80472565 -0.0293998428,5.06887433 0.424549132,4.61515237 C0.878271088,4.1612034 1.61412241,4.1612034 2.06784442,4.61515237 L4.95745657,7.50476459 L11.9319286,0.530065522 C12.3858776,0.0763435654 13.1217289,0.0763435654 13.5754509,0.530065522 L13.5754509,0.530065522 Z" id="Shape"></path>
+                </g>
+                <rect id="Rectangle" stroke="#DBDBDB" stroke-width="2" x="0" y="0" width="21" height="21" rx="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
