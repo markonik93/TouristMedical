@@ -1,32 +1,38 @@
+@import "../../styles.scss";
 $homepageHigh:1750px;
 .homepage{
-    position: absolute;
+    //position: absolute;
     display: flex;
-    top: 67px;
-    left: 0;
-    right: 0;
+    //top: 67px;
+    //left: 0;
+    //right: 0;
     height: $homepageHigh;
     background-color: #f7f7f7;
     justify-content: center;
+    //margin-top: 67px;
     font-family: Arial, Helvetica, sans-serif;
     //font-family: Montserrat,sans-serif;
+    .homepage-center{
+        display: flex;
+        //position: absolute;
+        margin-top: 20px;
+        top: 50px;
+        width: 65%;
+        //height: 1750px;
+       //border: 1px solid red;
+    }
 }
-.homepage-center{
-    display: flex;
-    position: absolute;
-    top: 50px;
-    width: 65%;
-    height: 1750px;
-   // border: 1px solid red;
+.pink{
+    color: $pinkcolour;
 }
 .homepage-left{
-    position: absolute;
+    //position: absolute;
     display: flex;
     flex-direction: column;
     width: 59%;
-    height: 1750px;
+    //height: 1750px;
     //justify-self: flex-start;
-    left: 0;
+    //left: 0;
     //border: 1px solid green;
 }
 .homepage-tooth-image{
@@ -44,13 +50,13 @@ $homepageHigh:1750px;
 }
 
 .homepage-right{
-    position: absolute;
+    //position: absolute;
     display: flex;
     flex-direction: column;
     width: 40%;
-    right: 0;
+   // right: 0;
     //height: 1100px;
-    height: 62%;
+    //height: 72%;
     border: 2px solid #af376d;
     border-radius: 5px;
 }
@@ -96,14 +102,56 @@ $homepageHigh:1750px;
     flex-direction: row;
     margin: 7px;
     //border: 1px solid red;
+
+    input[type=checkbox]{
+        display: none;
+    }
+
+    input[type=checkbox] + span{
+        background: url("../../assets/checkbox-btn-inactive.svg") left top no-repeat;
+        background-size: 25px 25px;
+        display: inline-block;
+        min-height: 25px;
+        padding-left: 35px;
+        line-height: 25px;
+        font-size: 14px;
+        color: #000;
+        cursor: pointer;
+        margin: 0px;
+    }
+
+    input[type=checkbox]:checked + span{
+        //background-color: red;
+        background: url("../../assets/checkbox-btn-active.svg") left top no-repeat;
+        background-size: 25px 25px;
+    }
+
+    input[type=radio]{
+        display: none;
+    }
+
+    input[type=radio] + span{
+        background: url("../../assets/radio-btn-inactive.svg") left top no-repeat;
+        background-size: 25px 25px;
+        display: inline-block;
+        min-height: 25px;
+        padding-left: 35px;
+        line-height: 25px;
+        font-size: 14px;
+        color: #000;
+        cursor: pointer;
+        margin: 0px;
+    }
+
+    input[type=radio]:checked + span{
+        //background-color: red;
+        background: url("../../assets/radio-btn-active.svg") left top no-repeat;
+        background-size: 25px 25px;
+    }
+
+    
 }
-.section-check-radio input[type=checkbox]{
-    background-image: url("../../assets/checkbox-btn-inactive.svg");
-}
-.section-check-radio input[type=checkbox]:checked{
-    background-color: red;
-    background-image: url("../../assets/checkbox-btn-active.svg");
-}
+
 .section-check-radio img{
     width: 20px;
     height: 20px;
@@ -142,9 +190,9 @@ textarea:focus{
     display: flex;
     width: 35%;
     height: 30px;
-    border: 1px solid #af376d;
+    border: 1px solid $pinkcolour;
     border-radius: 15px;
-    background: #af376d;
+    background: $pinkcolour;
     color: white;
     justify-content: center;
     align-items: center;
