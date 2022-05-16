@@ -43,65 +43,50 @@
             <div class="user-data-inputs">
                 <div class="section">
                     <div class="label"><span class="pink">*</span>Ime i prezime</div>
-                    <input class="input">
+                    <input class="input" type="text" name="inputImeIPrezime" placeholder="Unesite ime i prezime..." [(ngModel)]="inputImeIPrezime">
                 </div>
                 <div class="section">
-                    <div class="label">Email</div>
-                    <input class="input">
+                    <div class="label" for="email">Email</div>
+                    <input class="input" type="email" name="inputEmail" placeholder="Unesite E-mail..." [(ngModel)]="inputEmail">
                 </div>
                 <div class="section">
-                    <div class="label"><span class="pink">*</span>Broj telefona</div>
-                    <input class="input">
+                    <div class="label" for="tel"><span class="pink">*</span>Broj telefona</div>
+                    <input class="input" type="tel" name="inputTelefon" placeholder="Unesite broj telefona..." [(ngModel)]="inputTelefon">
                 </div>
                 <div class="section">
                     <div class="label"><span class="pink">*</span>Zemlja i grad prebivališta</div>
-                    <input class="input">
+                    <input class="input" type="text" name="inputZemljaIGrad" placeholder="Unesite zemlju i grad..." [(ngModel)]="inputZemljaIGrad">
                 </div>
             </div>
-            <!-- <div class="user-data">
-                <div class="label"><span style="color: #af376d;">*</span>Koja usluga vas interesuje?</div>
-                <div class="section-check-radio"><img src="../../assets/checkbox-btn-inactive.svg"><span>Protetika</span></div>
-                <div class="section-check-radio"><img src="../../assets/checkbox-btn-inactive.svg"><span>Implanti</span></div>
-                <div class="section-check-radio"><img src="../../assets/checkbox-btn-active.svg"><span>Lečenje zuba</span></div>
-                <div class="section-check-radio"><img src="../../assets/checkbox-btn-inactive.svg"><span>Nešto drugo</span></div>
-            </div> -->
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Koja usluga vas interesuje?</div>
-                <div class="section-check-radio"><input type="checkbox" value="Protetika" id="ch1"><span for="ch1">Protetika</span></div>
-                <div class="section-check-radio"><input type="checkbox" value="Implanti"><span>Implanti</span></div>
-                <div class="section-check-radio"><input type="checkbox" value="LecenjeZuba"><span>Lečenje zuba</span></div>
-                <div class="section-check-radio"><input type="checkbox" value="NestoDrugo"><span>Nešto drugo</span></div>
+                <div class="section-check-radio"><input type="checkbox" value="Protetika" id="ch1"><label for="ch1">Protetika</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="Implanti" id="ch2"><label for="ch2">Implanti</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="LecenjeZuba" id="ch3"><label for="ch3">Lečenje zuba</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="NestoDrugo" id="ch4"><label for="ch4">Nešto drugo</label></div>
             </div>
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Idealna lokacija ordinacije</div>
-                <div class="section-check-radio"><input type="radio" id="rd1"><span for="rd1">Beograd i okolina</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Novi Sad i okolina</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Drugi grad u Srbiji</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Region</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Svejedno</span></div>
-            </div>
-            <div class="user-data">
-                <div class="label"><span class="pink">*</span>Idealna lokacija ordinacije</div>
-                <div class="section-check-radio"><input type="radio"><span>Beograd i okolina</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Novi Sad i okolina</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Drugi grad u Srbiji</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Region</span></div>
-                <div class="section-check-radio"><input type="radio"><span>Svejedno</span></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd1"><label for="rd1">Beograd i okolina</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd2"><label for="rd2">Novi Sad i okolina</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd3"><label for="rd3">Drugi grad u Srbiji</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd4"><label for="rd4">Region</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd5"><label for="rd5">Svejedno</label></div>
             </div>
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Kada biste posetili stomatologa?</div>
-                <div class="section-check-radio"><img src="../../assets/radio-btn-active.svg"><span>Što pre</span></div>
-                <div class="section-check-radio"><img src="../../assets/radio-btn-inactive.svg"><span>U narednih mesec dana</span></div>
-                <div class="section-check-radio"><img src="../../assets/radio-btn-inactive.svg"><span>U naredna 3 meseca</span></div>
-                <div class="section-check-radio"><img src="../../assets/radio-btn-inactive.svg"><span>U narednih 6 meseci</span></div>
-                <div class="section-check-radio"><img src="../../assets/radio-btn-inactive.svg"><span>Ne znam</span></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd11"><label for="rd11">Što pre</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd12"><label for="rd12">U narednih mesec dana</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd13"><label for="rd13">U naredna 3 meseca</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd14"><label for="rd14">U narednih 6 meseci</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd15"><label for="rd15">Ne znam</label></div>
             </div>
             <div class="user-data">
                 <div class="label">Napomena</div>
                 <textarea name="napomena" rows="6" ></textarea>
             </div>
             <div class="buttons">
-                <div class="posaljite">Pošaljite</div>
+                <div class="posaljite" (click)="showInputs()">Pošaljite</div>
                 <div class="odustanite">Odustanite</div>
             </div>
         </div>
