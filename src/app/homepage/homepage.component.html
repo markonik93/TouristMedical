@@ -38,57 +38,77 @@
             <p><b>Hollywood Smile</b> za obe vilice od 2.800 do 5.600 evra</p>
             <p>Za detalje, kontaktirajte nas na +381.62.256.000.</p>
         </div>
-        <div class="homepage-right">
+        <form class="homepage-right" [formGroup]="medicalOrderForm">
             <div class="heading-form">Popunite formu</div>
             <div class="user-data-inputs">
                 <div class="section">
                     <div class="label"><span class="pink">*</span>Ime i prezime</div>
-                    <input class="input" type="text" name="inputImeIPrezime" placeholder="Unesite ime i prezime..." [(ngModel)]="inputImeIPrezime">
+                    <input class="input" type="text" placeholder="Unesite ime i prezime..." formControlName="inputImeIPrezime">
                 </div>
                 <div class="section">
                     <div class="label" for="email">Email</div>
-                    <input class="input" type="email" name="inputEmail" placeholder="Unesite E-mail..." [(ngModel)]="inputEmail">
+                    <input class="input" type="email" placeholder="Unesite E-mail..." formControlName="inputEmail">
                 </div>
                 <div class="section">
                     <div class="label" for="tel"><span class="pink">*</span>Broj telefona</div>
-                    <input class="input" type="tel" name="inputTelefon" placeholder="Unesite broj telefona..." [(ngModel)]="inputTelefon">
+                    <input class="input" type="tel" placeholder="Unesite broj telefona..." formControlName="inputTelefon">
                 </div>
                 <div class="section">
                     <div class="label"><span class="pink">*</span>Zemlja i grad prebivališta</div>
-                    <input class="input" type="text" name="inputZemljaIGrad" placeholder="Unesite zemlju i grad..." [(ngModel)]="inputZemljaIGrad">
+                    <input class="input" type="text" placeholder="Unesite zemlju i grad..." formControlName="inputZemljaIGrad">
                 </div>
             </div>
-            <div class="user-data">
+            <div class="user-data" formGroupName="uslugaForm">
                 <div class="label"><span class="pink">*</span>Koja usluga vas interesuje?</div>
-                <div class="section-check-radio"><input type="checkbox" value="Protetika" id="ch1"><label for="ch1">Protetika</label></div>
-                <div class="section-check-radio"><input type="checkbox" value="Implanti" id="ch2"><label for="ch2">Implanti</label></div>
-                <div class="section-check-radio"><input type="checkbox" value="LecenjeZuba" id="ch3"><label for="ch3">Lečenje zuba</label></div>
-                <div class="section-check-radio"><input type="checkbox" value="NestoDrugo" id="ch4"><label for="ch4">Nešto drugo</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="Protetika" id="ch1" formControlName="protetika"><label for="ch1">Protetika</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="Implanti" id="ch2" formControlName="implanti"><label for="ch2">Implanti</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="LecenjeZuba" id="ch3" formControlName="lecenje zuba"><label for="ch3">Lečenje zuba</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="NestoDrugo" id="ch4" formControlName="nesto drugo"><label for="ch4">Nešto drugo</label></div>
             </div>
+            <!-- <form [formGroup]="form" (ngSubmit)="showInputs()" novalidate>
+
+                <div *ngFor="let uslugePodaci of uslugePodaci; let i=index">
+                  <label>
+                    <input type="checkbox" [value]="uslugePodaci.value" (change)="onCheckboxChange($event)" />
+                    {{uslugePodaci.name}}
+                  </label>
+                </div>
+              
+              </form> -->
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Idealna lokacija ordinacije</div>
-                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd1"><label for="rd1">Beograd i okolina</label></div>
-                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd2"><label for="rd2">Novi Sad i okolina</label></div>
-                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd3"><label for="rd3">Drugi grad u Srbiji</label></div>
-                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd4"><label for="rd4">Region</label></div>
-                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd5"><label for="rd5">Svejedno</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd1"><label for="rd1">Beograd i
+                        okolina</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd2"><label for="rd2">Novi Sad
+                        i okolina</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd3"><label for="rd3">Drugi
+                        grad u Srbiji</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd4"><label
+                        for="rd4">Region</label></div>
+                <div class="section-check-radio"><input type="radio" name="lokacija" id="rd5"><label
+                        for="rd5">Svejedno</label></div>
             </div>
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Kada biste posetili stomatologa?</div>
-                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd11"><label for="rd11">Što pre</label></div>
-                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd12"><label for="rd12">U narednih mesec dana</label></div>
-                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd13"><label for="rd13">U naredna 3 meseca</label></div>
-                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd14"><label for="rd14">U narednih 6 meseci</label></div>
-                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd15"><label for="rd15">Ne znam</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd11"><label for="rd11">Što
+                        pre</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd12"><label for="rd12">U
+                        narednih mesec dana</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd13"><label for="rd13">U
+                        naredna 3 meseca</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd14"><label for="rd14">U
+                        narednih 6 meseci</label></div>
+                <div class="section-check-radio"><input type="radio" name="vremePosete" id="rd15"><label for="rd15">Ne
+                        znam</label></div>
             </div>
             <div class="user-data">
                 <div class="label">Napomena</div>
-                <textarea name="napomena" rows="6" ></textarea>
+                <textarea name="napomena" rows="6" formControlName="inputNapomena"></textarea>
             </div>
             <div class="buttons">
                 <div class="posaljite" (click)="showInputs()">Pošaljite</div>
                 <div class="odustanite">Odustanite</div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
