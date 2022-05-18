@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { FormBuilder, FormGroup, FormArray, FormControl ,Validators, AbstractControl, ReactiveFormsModule} from '@angular/forms';
-import { FormBuilder} from '@angular/forms';
-import { Validators } from '@angular/forms';
+import {FormBuilder,FormGroup,FormArray,FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -16,62 +14,38 @@ export class HomepageComponent implements OnInit {
   // inputZemljaIGrad: String = '';
   // inputNapomena: String='';
 
-  // form: FormGroup;
-  // uslugePodaci: Array<any> = [
-  //   {name: 'Protetika', value:'Protetika'},
-  //   {name: 'Implanti', value:'Implanti'},
-  //   {name: 'Lečenje zuba', value:'Lečenje zuba'},
-  //   {name: 'Nešto drugo', value:'Nešto drugo'}
-  // ];
 
+  
   medicalOrderForm = this.fb.group({
-    inputImeIPrezime: ['', Validators.required],
+    inputImeIPrezime: [''],
     inputEmail: [''],
-    inputTelefon:['', Validators.required],
-    inputZemljaIGrad:['', Validators.required],
-    uslugaForm : this.fb.group({
-      protetika: ['false'],
-      implanti: ['false'],
-      lecenjeZuba: ['false'],
-      nestoDrugo: ['false']
-    }),
-    lokacija: ['', Validators.required],//this.fb.group({
-    //   beogradIOkolina: [''],
-    //   noviSadIOkolina: [''],
-    //   drugiGraduSrbiji: [''],
-    //   region: [''],
-    //   svejedno: [''],
+    inputTelefon: [''],
+    inputZemljaIGrad: [''],
+    // usluga:this.fb.group({
+    //   protetika: [''],
+    //   implanti: [''],
+    //   lecenjeZuba: [''],
+    //   nestoDrugo: [''],
     // }),
-    vreme: ['', Validators.required], //this.fb.group({
-    //   stoPre: [''],
-    //   uNarednihMesecDana: [''],
-    //   uNarednaTriMeseca: [''],
-    //   uNarednohSestMeseci: [''],
-    //   neZnam: [''],
-    // }),
-    inputNapomena:['', Validators.required],
+    lokacija: [''],
+    vreme: [''],
+    inputNapomena: [''],
   });
 
 
-  constructor(private fb: FormBuilder) { 
-    // this.form=this.fb.group({checkArray:this.fb.array([])});
-  
+  constructor(private fb: FormBuilder) {
+   
+  }
+  ngOnInit() {
 
   }
-  ngOnInit(){
-    // this.form = this.fb.group({
-    //   name: this.fb.array([])
-    // });
-  }
-
-  // onCheckboxChange(e:any) {
+  // onCheckboxChange(e: any) {
   //   const checkArray: FormArray = this.form.get('checkArray') as FormArray;
-  
   //   if (e.target.checked) {
   //     checkArray.push(new FormControl(e.target.value));
   //   } else {
   //     let i: number = 0;
-  //     checkArray.controls.forEach((item: AbstractControl) => {
+  //     checkArray.controls.forEach((item: any) => {
   //       if (item.value == e.target.value) {
   //         checkArray.removeAt(i);
   //         return;
