@@ -45,7 +45,22 @@
 
                 <div class="section">
                     <div class="label"><span class="pink">*</span>Ime i prezime</div>
-                    <input class="input" type="text" placeholder="Unesite ime i prezime..." formControlName="inputImeIPrezime">
+                    <input required class="input" id="fullname" type="text" placeholder="Unesite ime i prezime..."
+                        formControlName="inputImeIPrezime" minlength="4">
+                        
+                    <!--Validacija-->
+                    <div class="errorClass" *ngIf="punoIme.invalid && (punoIme.dirty || punoIme.touched)">
+                        <div *ngIf="punoIme.errors?.['required']">
+                            Ime je obavezno!
+                        </div>
+                        <div *ngIf="punoIme.errors?.['minlength']">
+                            Ime ne sme biti krace od 4 karaktera!
+                        </div>
+                        <div *ngIf="punoIme.errors?.['pattern']">
+                            Ime sme da sadrži samo slova!
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="section">
@@ -55,50 +70,110 @@
 
                 <div class="section">
                     <div class="label" for="tel"><span class="pink">*</span>Broj telefona</div>
-                    <input class="input" type="tel" placeholder="Unesite broj telefona..." formControlName="inputTelefon">
+                    <input required class="input" type="text" placeholder="Unesite broj telefona..."
+                        formControlName="inputTelefon">
+
+                    <!--Validacija-->
+                    <div class="errorClass" *ngIf="telefon.invalid && (telefon.dirty || telefon.touched)">
+                        <div *ngIf="telefon.errors?.['required']">
+                            Broj telefona je obavezan!
+                        </div>
+                        <div *ngIf="telefon.errors?.['pattern']">
+                            Telefon moze sadrzati samo cifre!
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="section">
                     <div class="label"><span class="pink">*</span>Zemlja i grad prebivališta</div>
-                    <input class="input" type="text" placeholder="Unesite zemlju i grad..." formControlName="inputZemljaIGrad">
+                    <input requred class="input" type="text" placeholder="Unesite zemlju i grad..."
+                        formControlName="inputZemljaIGrad">
+
+                    <div class="errorClass" *ngIf="mesto.invalid && (mesto.dirty || mesto.touched)">
+                        <div *ngIf="mesto.errors?.['required']">
+                            Zemlja i grad su obavezni!
+                        </div>
+                        <div *ngIf="mesto.errors?.['pattern']">
+                            Zemlja i grad mogu sadržati samo slova!
+                        </div>
+                    </div>
                 </div>
 
             </div>
 
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Koja usluga vas interesuje?</div>
-                <div class="section-check-radio"><input type="checkbox" value="Protetika" id="ch1"><label for="ch1">Protetika</label></div>
-                <div class="section-check-radio"><input type="checkbox" value="Implanti" id="ch2"><label for="ch2">Implanti</label></div>
-                <div class="section-check-radio"><input type="checkbox" value="LecenjeZuba" id="ch3"><label for="ch3">Lečenje zuba</label></div>
-                <div class="section-check-radio"><input type="checkbox" value="NestoDrugo" id="ch4"><label for="ch4">Nešto drugo</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="Protetika" id="ch1"
+                        (change)="onCheckboxChange($event)" #checkBox><label for="ch1">Protetika</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="Implanti" id="ch2"
+                        (change)="onCheckboxChange($event)" #checkBox><label for="ch2">Implanti</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="Lecenje zuba" id="ch3"
+                        (change)="onCheckboxChange($event)" #checkBox><label for="ch3">Lečenje zuba</label></div>
+                <div class="section-check-radio"><input type="checkbox" value="Nesto drugo" id="ch4"
+                        (change)="onCheckboxChange($event)" #checkBox><label for="ch4">Nešto drugo</label></div>
+
+                <div *ngIf="" class="errorClass">Obavezno je izabrati bar jednu od usluga!</div>
             </div>
+
+
+
+            <!-- <div *ngFor="let service of services; let i=index" class="col-md-2">
+                <label>
+                  <input type="checkbox" [value]="service.value" (change)="onCheckboxChange($event)">
+                  {{service.name}}
+                </label>
+            </div> -->
 
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Idealna lokacija ordinacije</div>
-                <div class="section-check-radio"><input type="radio" value="Beograd i okolina" id="rd1" formControlName="lokacija">
-                                                 <label for="rd1">Beograd i okolina</label></div>
-                <div class="section-check-radio"><input type="radio" value="Novi Sad i okolina" id="rd2" formControlName="lokacija">
-                                                 <label for="rd2">Novi Sad i okolina</label></div>
-                <div class="section-check-radio"><input type="radio" value="Drugi grad u Srbiji" id="rd3" formControlName="lokacija">
-                                                 <label for="rd3">Drugi grad u Srbiji</label></div>
+                <div class="section-check-radio"><input type="radio" value="Beograd i okolina" id="rd1"
+                        formControlName="lokacija">
+                    <label for="rd1">Beograd i okolina</label>
+                </div>
+                <div class="section-check-radio"><input type="radio" value="Novi Sad i okolina" id="rd2"
+                        formControlName="lokacija">
+                    <label for="rd2">Novi Sad i okolina</label>
+                </div>
+                <div class="section-check-radio"><input type="radio" value="Drugi grad u Srbiji" id="rd3"
+                        formControlName="lokacija">
+                    <label for="rd3">Drugi grad u Srbiji</label>
+                </div>
                 <div class="section-check-radio"><input type="radio" value="Region" id="rd4" formControlName="lokacija">
-                                                 <label for="rd4">Region</label></div>
-                <div class="section-check-radio"><input type="radio" value="Svejedno" id="rd5" formControlName="lokacija">
-                                                 <label for="rd5">Svejedno</label></div>
+                    <label for="rd4">Region</label>
+                </div>
+                <div class="section-check-radio"><input type="radio" value="Svejedno" id="rd5"
+                        formControlName="lokacija">
+                    <label for="rd5">Svejedno</label>
+                </div>
             </div>
 
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Kada biste posetili stomatologa?</div>
                 <div class="section-check-radio"><input type="radio" value="Što pre" id="rd11" formControlName="vreme">
-                                                 <label for="rd11">Što pre</label></div>
-                <div class="section-check-radio"><input type="radio" value="U narednih mesec dana" id="rd12" formControlName="vreme">
-                                                 <label for="rd12">U narednih mesec dana</label></div>
-                <div class="section-check-radio"><input type="radio" value="U naredna 3 meseca" id="rd13" formControlName="vreme">
-                                                 <label for="rd13">U naredna 3 meseca</label></div>
-                <div class="section-check-radio"><input type="radio" value="U narednih 6 meseci" id="rd14" formControlName="vreme">
-                                                 <label for="rd14">U narednih 6 meseci</label></div>
+                    <label for="rd11">Što pre</label>
+                </div>
+                <div class="section-check-radio"><input type="radio" value="U narednih mesec dana" id="rd12"
+                        formControlName="vreme">
+                    <label for="rd12">U narednih mesec dana</label>
+                </div>
+                <div class="section-check-radio"><input type="radio" value="U naredna 3 meseca" id="rd13"
+                        formControlName="vreme">
+                    <label for="rd13">U naredna 3 meseca</label>
+                </div>
+                <div class="section-check-radio"><input type="radio" value="U narednih 6 meseci" id="rd14"
+                        formControlName="vreme">
+                    <label for="rd14">U narednih 6 meseci</label>
+                </div>
                 <div class="section-check-radio"><input type="radio" value="Ne znam" id="rd15" formControlName="vreme">
-                                                 <label for="rd15">Ne znam</label></div>
+                    <label for="rd15">Ne znam</label>
+                </div>
+
+                <div class="errorClass" *ngIf="vreme.invalid && (vreme.dirty || vreme.touched)">
+                    <div *ngIf="vreme.errors?.['required']">
+                        Vreme kada biste posetili je obavezno!
+                    </div>
+                </div>
             </div>
 
             <div class="user-data">

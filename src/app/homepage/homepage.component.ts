@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup,FormArray,FormControl} from '@angular/forms';
+import {FormBuilder,FormGroup,FormArray,FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -17,47 +17,53 @@ export class HomepageComponent implements OnInit {
 
   
   medicalOrderForm = this.fb.group({
-    inputImeIPrezime: [''],
+    inputImeIPrezime: ['',[Validators.required,Validators.minLength(4),Validators.pattern('^[a-zA-Z \-\']+')]],
     inputEmail: [''],
-    inputTelefon: [''],
-    inputZemljaIGrad: [''],
-    // usluga:this.fb.group({
-    //   protetika: [''],
-    //   implanti: [''],
-    //   lecenjeZuba: [''],
-    //   nestoDrugo: [''],
-    // }),
-    lokacija: [''],
-    vreme: [''],
+    inputTelefon: ['',[Validators.required,Validators.pattern("^[+-/ 0-9]*$")]],
+    inputZemljaIGrad: ['',[Validators.required,Validators.pattern('^[a-zA-Z, \-\']+')]],
+    usluge:this.fb.array([],[Validators.required]),
+    lokacija: ['',[Validators.required]],
+    vreme: ['',[Validators.required]],
     inputNapomena: [''],
   });
+  get punoIme() { return this.medicalOrderForm.get('inputImeIPrezime')!;}
+  get telefon() { return this.medicalOrderForm.get('inputTelefon')!;}
+  get mesto() { return this.medicalOrderForm.get('inputZemljaIGrad')!;}
+  get usluga() { return this.medicalOrderForm.get('usluge')!;}
+  get lokacija() { return this.medicalOrderForm.get('lokacija')!;}
+  get vreme() { return this.medicalOrderForm.get('vreme')!;}
 
 
-  constructor(private fb: FormBuilder) {
-   
+  constructor(private fb: FormBuilder) {   
   }
+
   ngOnInit() {
 
   }
-  // onCheckboxChange(e: any) {
-  //   const checkArray: FormArray = this.form.get('checkArray') as FormArray;
-  //   if (e.target.checked) {
-  //     checkArray.push(new FormControl(e.target.value));
-  //   } else {
-  //     let i: number = 0;
-  //     checkArray.controls.forEach((item: any) => {
-  //       if (item.value == e.target.value) {
-  //         checkArray.removeAt(i);
-  //         return;
-  //       }
-  //       i++;
-  //     });
-  //   }
-  // }
+  onCheckboxChange(e: any) {
+    const services: FormArray = this.medicalOrderForm.get('usluge') as FormArray;
+    if (e.target.checked) {
+      services.push(new FormControl(e.target.value));
+    } else {
+      let i: number = 0;
+      services.controls.forEach((item: any) => {
+        if (item.value == e.target.value) {
+          services.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+    console.log(services);
+  }
+ 
 
   showInputs() {
-    //console.log(" Ime i prezime: " + this.inputImeIPrezime,"\n Email: " + this.inputEmail,"\n Telefon: " + this.inputTelefon,"\n Zemlja i grad: " + this.inputZemljaIGrad,"\n Napomena: "+this.inputNapomena);
-    // console.log(this.form.value);
+    if(this.medicalOrderForm.valid){
+
+    }else{
+
+    }
     console.log(this.medicalOrderForm.value);
   }
 
