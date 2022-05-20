@@ -22,6 +22,7 @@ $homepageHigh:1750px;
        //border: 1px solid red;
     }
 }
+
 .pink{
     color: $pinkcolour;
 }
@@ -59,7 +60,7 @@ $homepageHigh:1750px;
    // right: 0;
     //height: 1100px;
     //height: 72%;
-    border: 2px solid #af376d;
+    border: 2px solid $pinkcolour;
     border-radius: 5px;
 }
 .heading-form{
@@ -98,7 +99,7 @@ $homepageHigh:1750px;
     color: #999;
 }
 .input:focus{
-    outline-color:#af376d;
+    outline-color: $pinkcolour;
 }
 .user-data{
     //position: relative;
@@ -217,4 +218,11 @@ textarea:focus{
 }
 .odustanite:hover{
     cursor: pointer;
+}
+.errorClass{
+    padding-left: 5px;
+    color: #af376d;
+    font-size: 13px;
+    font-weight: bold;
+    //border: 1px solid red;
 }
