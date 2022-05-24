@@ -18,7 +18,7 @@ export class HomepageComponent implements OnInit {
   
   medicalOrderForm = this.fb.group({
     inputImeIPrezime: ['',[Validators.required,Validators.minLength(4),Validators.pattern('^[a-zA-Z \-\']+')]],
-    inputEmail: [''],
+    inputEmail: ['',[Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     inputTelefon: ['',[Validators.required,Validators.pattern("^[+-/ 0-9]*$")]],
     inputZemljaIGrad: ['',[Validators.required,Validators.pattern('^[a-zA-Z, \-\']+')]],
     usluge:this.fb.array([],[Validators.required]),
@@ -32,6 +32,7 @@ export class HomepageComponent implements OnInit {
   get usluga() { return this.medicalOrderForm.get('usluge')!;}
   get lokacija() { return this.medicalOrderForm.get('lokacija')!;}
   get vreme() { return this.medicalOrderForm.get('vreme')!;}
+  get email() { return this.medicalOrderForm.get('inputEmail')!;}
 
 
   constructor(private fb: FormBuilder) {   

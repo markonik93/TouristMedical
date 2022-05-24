@@ -66,6 +66,13 @@
                 <div class="section">
                     <div class="label" for="email">Email</div>
                     <input class="input" type="email" placeholder="Unesite E-mail..." formControlName="inputEmail">
+
+                    <div class="errorClass" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email.errors?.['pattern']">
+                            Pogrešan format unetog E-mail-a!
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="section">
@@ -146,6 +153,12 @@
                         formControlName="lokacija">
                     <label for="rd5">Svejedno</label>
                 </div>
+
+                <div class="errorClass" *ngIf="lokacija.invalid">
+                    <div *ngIf="vreme.errors?.['required']">
+                        Lokacija ordinacije je obavezna!
+                    </div>
+                </div>
             </div>
 
             <div class="user-data">
@@ -169,7 +182,7 @@
                     <label for="rd15">Ne znam</label>
                 </div>
 
-                <div class="errorClass" *ngIf="vreme.invalid && (vreme.dirty || vreme.touched)">
+                <div class="errorClass" *ngIf="vreme.invalid">
                     <div *ngIf="vreme.errors?.['required']">
                         Vreme kada biste posetili je obavezno!
                     </div>
