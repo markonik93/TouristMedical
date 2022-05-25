@@ -61,9 +61,7 @@ export class HomepageComponent implements OnInit {
 
   showInputs() {
     if(this.medicalOrderForm.valid){
-
     }else{
-
     }
     console.log(this.medicalOrderForm.value);
   }

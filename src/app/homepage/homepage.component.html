@@ -120,17 +120,13 @@
                 <div class="section-check-radio"><input type="checkbox" value="Nesto drugo" id="ch4"
                         (change)="onCheckboxChange($event)" #checkBox><label for="ch4">Nešto drugo</label></div>
 
-                <div *ngIf="" class="errorClass">Obavezno je izabrati bar jednu od usluga!</div>
+                <div class="errorClass" *ngIf="usluga.invalid">
+                    <div *ngIf="usluga.errors?.['required']">
+                        Obavezno je izabrati bar jednu od usluga!
+                    </div>
+                </div>
             </div>
 
-
-
-            <!-- <div *ngFor="let service of services; let i=index" class="col-md-2">
-                <label>
-                  <input type="checkbox" [value]="service.value" (change)="onCheckboxChange($event)">
-                  {{service.name}}
-                </label>
-            </div> -->
 
             <div class="user-data">
                 <div class="label"><span class="pink">*</span>Idealna lokacija ordinacije</div>
