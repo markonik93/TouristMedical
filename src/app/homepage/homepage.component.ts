@@ -64,7 +64,7 @@ export class HomepageComponent implements OnInit {
   sendFunction(){
     this.showInputs();
     this.putInputsInLS();
-    //window.location.reload();
+    window.location.reload();
 
   }
 
@@ -83,20 +83,24 @@ export class HomepageComponent implements OnInit {
     this.orderForm.imeIPrezime = this.medicalOrderForm.controls['inputImeIPrezime'].value; //? this.medicalOrderForm.controls['inputImeIPrezime'].value: "";
     this.orderForm.email = this.medicalOrderForm.controls['inputEmail'].value; //? this.medicalOrderForm.controls['inputEmail'].value: "";
     this.orderForm.telefon = this.medicalOrderForm.controls['inputTelefon'].value; //? this.medicalOrderForm.controls['inputTelefon'].value: "";
-    this.orderForm.zemljIGrad = this.medicalOrderForm.controls['inputZemljaIGrad'].value; //? this.medicalOrderForm.controls['inputZemljaIGrad'].value: "";
+    this.orderForm.zemljaIGrad = this.medicalOrderForm.controls['inputZemljaIGrad'].value; //? this.medicalOrderForm.controls['inputZemljaIGrad'].value: "";
     this.orderForm.usluge = this.medicalOrderForm.controls['usluge'].value; //? this.medicalOrderForm.controls['usluge'].value: "";
     this.orderForm.lokacija = this.medicalOrderForm.controls['lokacija'].value; //? this.medicalOrderForm.controls['lokacija'].value: "";
     this.orderForm.vremePregleda = this.medicalOrderForm.controls['vreme'].value; //? this.medicalOrderForm.controls['vreme'].value: "";
     this.orderForm.napomena = this.medicalOrderForm.controls['inputNapomena'].value; //? this.medicalOrderForm.controls['inputNapomena'].value: "";
 
     console.log(this.orderForm);
-    this.orderForms.push(this.orderForm) ? this.orderForms:"";
+    if(this.orderForms==null){
+      this.orderForms=new Array();
+    }
+    this.orderForms.push(this.orderForm); //? this.orderForms:"";
+    //this.orderForms.push(this.orderForm) ? this.orderForms:{imeIPrezime:'', email:'', telefon:'', zemljaIGrad:'', usluge:'', lokacija:'', vremePregleda:'', napomena:'', vremeZakazivanja:'', id:''};
     localStorage.setItem('myOrders', JSON.stringify(this.orderForms));
     
     console.log(this.orderForm.imeIPrezime);
     console.log(this.orderForm.email);
     console.log(this.orderForm.telefon);
-    console.log(this.orderForm.zemljIGrad);
+    console.log(this.orderForm.zemljaIGrad);
     console.log(this.orderForm.usluge);
     console.log(this.orderForm.lokacija);
     console.log(this.orderForm.vremePregleda);

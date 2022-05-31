@@ -4,7 +4,7 @@ export class OrderForm{
     imeIPrezime: string='';
     email?:string;
     telefon:number=0;
-    zemljIGrad:string='';
+    zemljaIGrad:string='';
     usluge?:string[];
     lokacija:string='';
     vremePregleda:string='';
