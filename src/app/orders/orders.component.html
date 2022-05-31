@@ -27,7 +27,7 @@
             <div class="section">{{orderForm.vremeZakazivanja}}</div>
         </div> -->
 
-        <table>
+        <!-- <table>
             <tr class="tableHeading">
                 <th>R.br.</th>
                 <th>ID</th>
@@ -54,7 +54,57 @@
                 <td>{{orderForm.napomena}}</td>
                 <td>{{orderForm.vremeZakazivanja}}</td>
             </tr>
+        </table> -->
+        
+        <table>
+            <tr class="tableHeading">
+                <th>Red.br.</th>
+                <th>Korisnik</th>
+                <th>Email</th>
+                <th>Kontakt</th>
+                <th>Detalji</th>
+            </tr>
+            <tr *ngFor="let orderForm of orderForms let i=index">
+                <td>{{i+1}}</td>
+                <td>{{orderForm.imeIPrezime}}</td>
+                <td>{{orderForm.email}}</td>
+                <td>{{orderForm.telefon}}</td>
+                <td (click)="orderDetails(orderForm.id)" class="details">Detalji rezervacije</td>
+            </tr>
         </table>
+        <div *ngFor="let orderForm of orderForms let i=index">
+            <div *ngIf=" orderForm.id==[orderId]">
+                <div class="headingDetailsOrder">Detalji rezervacije: </div>
+                <div class="orderDetails">
+                    <div class="orderDetails-section">
+                        <label>Red.br.:</label>
+                        <label>ID:</label>
+                        <label>Korisnik:</label>
+                        <label>Email:</label>
+                        <label>Kontakt:</label>
+                        <label>Mesto:</label>
+                        <label>Usluge:</label>
+                        <label>Lokacija ordinacije:</label>
+                        <label>Vreme pregleda:</label>
+                        <label>Napomena:</label>
+                        <label>Vreme zakazivanja:</label>
+                    </div>
+                    <div class="orderDetails-section">
+                        <label>{{i+1}}</label>
+                        <label>{{orderForm.id}}</label>
+                        <label>{{orderForm.imeIPrezime}}</label>
+                        <label>{{orderForm.email}}</label>
+                        <label>{{orderForm.telefon}}</label>
+                        <label>{{orderForm.zemljaIGrad}}</label>
+                        <label>{{orderForm.usluge}}</label>
+                        <label>{{orderForm.lokacija}}</label>
+                        <label>{{orderForm.vremePregleda}}</label>
+                        <label>{{orderForm.napomena}}</label>
+                        <label>{{orderForm.vremeZakazivanja}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!-- <button (click)="goBack()">Nazad</button> -->

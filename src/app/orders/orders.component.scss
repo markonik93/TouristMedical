@@ -1,34 +1,59 @@
 @import "../../styles.scss";
-.orders{
+
+.orders {
     display: flex;
     background-color: #f7f7f7;
     justify-content: center;
     //flex-direction: column;
     //height: 1750px;
     padding-bottom: 50px;
+
     //margin-bottom: 50px;
-    .orders-center{
+    .orders-center {
         display: flex;
         flex-direction: column;
         margin-top: 35px;
         width: 90%;
         border: 1px solid $pinkcolour;
-        .headings{
-            padding: 0 3px;
-            display: flex;
-            flex-direction: row;
-            //height: fit-content;
-            //justify-content: space-between;
-            flex-grow: 1;
-            border-bottom: 1px solid $pinkcolour;
-            .section{
-                display: flex;
-                flex-grow: 1;
-                border: 1px solid green;
-            }
-        }
+        // .headings{
+        //     padding: 0 3px;
+        //     display: flex;
+        //     flex-direction: row;
+        //     //height: fit-content;
+        //     //justify-content: space-between;
+        //     flex-grow: 1;
+        //     border-bottom: 1px solid $pinkcolour;
+        //     .section{
+        //         display: flex;
+        //         flex-grow: 1;
+        //         //border: 1px solid $pinkcolour;
+        //     }
+        // }
     }
 }
-table tr td{
+
+table tr td {
     border: 1px solid $pinkcolour;
+}
+
+.details:hover {
+    cursor: pointer;
+    color: $pinkcolour;
+}
+.headingDetailsOrder{
+    display:flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 15px 0;
+}
+.orderDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 20px;
+    .orderDetails-section {
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px;
+    }
 }

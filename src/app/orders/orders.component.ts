@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 
 export class OrdersComponent implements OnInit {
   orderForms: any[] = [];
+  orderId:number=0;
 
   constructor(private location:Location) { }
 
@@ -18,6 +19,11 @@ export class OrdersComponent implements OnInit {
 
   goBack(){
     this.location.back();
+  }
+  orderDetails(id:number){
+    this.orderId=id;
+    console.log(id);
+
   }
 
 }
