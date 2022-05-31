@@ -10,11 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class HomepageComponent implements OnInit {
-  //inputImeIPrezime: String = '';
-  // inputEmail: String = '';
-  // inputTelefon: String = '';
-  // inputZemljaIGrad: String = '';
-  // inputNapomena: String='';
+
   orderForm?: OrderForm;
   orderForms: any[] = [];
   
@@ -28,6 +24,7 @@ export class HomepageComponent implements OnInit {
     vreme: ['', [Validators.required]],
     inputNapomena: [''],
   });
+
   get punoIme() { return this.medicalOrderForm.get('inputImeIPrezime')!; }
   get telefon() { return this.medicalOrderForm.get('inputTelefon')!; }
   get mesto() { return this.medicalOrderForm.get('inputZemljaIGrad')!; }
@@ -42,9 +39,8 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     this.orderForms = JSON.parse(localStorage.getItem('myOrders')!);
-    
-    
   }
+
   onCheckboxChange(e: any) {
     const services: FormArray = this.medicalOrderForm.get('usluge') as FormArray;
     if (e.target.checked) {
@@ -65,9 +61,7 @@ export class HomepageComponent implements OnInit {
   sendFunction(){
     this.showInputs();
     this.putInputsInLS();
-    //window.location.reload();
-    this.router.navigate(['/orders']);
-
+    window.location.reload();
   }
 
 
@@ -82,35 +76,25 @@ export class HomepageComponent implements OnInit {
     this.orderForm = new OrderForm();
     this.orderForm.id = this.getRandomInt(1, 30);
     this.orderForm.vremeZakazivanja = new Date().toLocaleString();
-    this.orderForm.imeIPrezime = this.medicalOrderForm.controls['inputImeIPrezime'].value; //? this.medicalOrderForm.controls['inputImeIPrezime'].value: "";
-    this.orderForm.email = this.medicalOrderForm.controls['inputEmail'].value; //? this.medicalOrderForm.controls['inputEmail'].value: "";
-    this.orderForm.telefon = this.medicalOrderForm.controls['inputTelefon'].value; //? this.medicalOrderForm.controls['inputTelefon'].value: "";
-    this.orderForm.zemljaIGrad = this.medicalOrderForm.controls['inputZemljaIGrad'].value; //? this.medicalOrderForm.controls['inputZemljaIGrad'].value: "";
-    this.orderForm.usluge = this.medicalOrderForm.controls['usluge'].value; //? this.medicalOrderForm.controls['usluge'].value: "";
-    this.orderForm.lokacija = this.medicalOrderForm.controls['lokacija'].value; //? this.medicalOrderForm.controls['lokacija'].value: "";
-    this.orderForm.vremePregleda = this.medicalOrderForm.controls['vreme'].value; //? this.medicalOrderForm.controls['vreme'].value: "";
-    this.orderForm.napomena = this.medicalOrderForm.controls['inputNapomena'].value; //? this.medicalOrderForm.controls['inputNapomena'].value: "";
+    this.orderForm.imeIPrezime = this.medicalOrderForm.controls['inputImeIPrezime'].value;
+    this.orderForm.email = this.medicalOrderForm.controls['inputEmail'].value;
+    this.orderForm.telefon = this.medicalOrderForm.controls['inputTelefon'].value;
+    this.orderForm.zemljaIGrad = this.medicalOrderForm.controls['inputZemljaIGrad'].value;
+    this.orderForm.usluge = this.medicalOrderForm.controls['usluge'].value;
+    this.orderForm.lokacija = this.medicalOrderForm.controls['lokacija'].value;
+    this.orderForm.vremePregleda = this.medicalOrderForm.controls['vreme'].value;
+    this.orderForm.napomena = this.medicalOrderForm.controls['inputNapomena'].value;
 
     console.log(this.orderForm);
     if(this.orderForms==null){
       this.orderForms=new Array();
     }
-    this.orderForms.push(this.orderForm); //? this.orderForms:"";
-    //this.orderForms.push(this.orderForm) ? this.orderForms:{imeIPrezime:'', email:'', telefon:'', zemljaIGrad:'', usluge:'', lokacija:'', vremePregleda:'', napomena:'', vremeZakazivanja:'', id:''};
+    this.orderForms.push(this.orderForm); 
     localStorage.setItem('myOrders', JSON.stringify(this.orderForms));
-    
-    // console.log(this.orderForm.imeIPrezime);
-    // console.log(this.orderForm.email);
-    // console.log(this.orderForm.telefon);
-    // console.log(this.orderForm.zemljaIGrad);
-    // console.log(this.orderForm.usluge);
-    // console.log(this.orderForm.lokacija);
-    // console.log(this.orderForm.vremePregleda);
-    // console.log(this.orderForm.napomena);
-    // console.log(this.orderForm.vremeZakazivanja);
-    // console.log(this.orderForm.id);
 
   }
+
+
   getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);

@@ -1,3 +1,61 @@
-<p>orders works!</p>
+<div class="orders">
+    <div class="orders-center">
+        <!-- <div class="headings">
+            <div class="section">R.br.</div>
+            <div class="section">ID</div>
+            <div class="section">Korisnik</div>
+            <div class="section">Email</div>
+            <div class="section">Kontakt</div>
+            <div class="section">Mesto</div>
+            <div class="section">Usluge</div>
+            <div class="section">Lokacija ordinacije</div>
+            <div class="section">Vreme pregleda</div>
+            <div class="section">Napomena</div>
+            <div class="section">Vreme zakazivanja</div>
+        </div>
+        <div class="headings" *ngFor="let orderForm of orderForms let i=index">
+            <div class="section">{{i+1}}</div>
+            <div class="section">{{orderForm.id}}</div>
+            <div class="section">{{orderForm.imeIPrezime}}</div>
+            <div class="section">{{orderForm.email}}</div>
+            <div class="section">{{orderForm.telefon}}</div>
+            <div class="section">{{orderForm.zemljaIGrad}}</div>
+            <div class="section">{{orderForm.usluge}}</div>
+            <div class="section">{{orderForm.lokacija}}</div>
+            <div class="section">{{orderForm.vremePregleda}}</div>
+            <div class="section">{{orderForm.napomena}}</div>
+            <div class="section">{{orderForm.vremeZakazivanja}}</div>
+        </div> -->
 
-<button (click)="goBack()">Nazad</button>
+        <table>
+            <tr class="tableHeading">
+                <th>R.br.</th>
+                <th>ID</th>
+                <th>Korisnik</th>
+                <th>Email</th>
+                <th>Kontakt</th>
+                <th>Mesto</th>
+                <th>Usluge</th>
+                <th>Lokacija ordinacije</th>
+                <th>Vreme pregleda</th>
+                <th>Napomena</th>
+                <th>Vreme zakazivanja</th>
+            </tr>
+            <tr *ngFor="let orderForm of orderForms let i=index">
+                <td>{{i+1}}</td>
+                <td>{{orderForm.id}}</td>
+                <td>{{orderForm.imeIPrezime}}</td>
+                <td>{{orderForm.email}}</td>
+                <td>{{orderForm.telefon}}</td>
+                <td>{{orderForm.zemljaIGrad}}</td>
+                <td>{{orderForm.usluge}}</td>
+                <td>{{orderForm.lokacija}}</td>
+                <td>{{orderForm.vremePregleda}}</td>
+                <td>{{orderForm.napomena}}</td>
+                <td>{{orderForm.vremeZakazivanja}}</td>
+            </tr>
+        </table>
+
+    </div>
+    <!-- <button (click)="goBack()">Nazad</button> -->
+</div>
