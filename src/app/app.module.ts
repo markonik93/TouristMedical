@@ -7,6 +7,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     AppComponent,
     HomepageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

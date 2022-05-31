@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { OrderForm } from '../orderForm';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -36,7 +37,7 @@ export class HomepageComponent implements OnInit {
   get email() { return this.medicalOrderForm.get('inputEmail')!; }
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router:Router) {
   }
 
   ngOnInit() {
@@ -64,7 +65,8 @@ export class HomepageComponent implements OnInit {
   sendFunction(){
     this.showInputs();
     this.putInputsInLS();
-    window.location.reload();
+    //window.location.reload();
+    this.router.navigate(['/orders']);
 
   }
 
@@ -97,16 +99,16 @@ export class HomepageComponent implements OnInit {
     //this.orderForms.push(this.orderForm) ? this.orderForms:{imeIPrezime:'', email:'', telefon:'', zemljaIGrad:'', usluge:'', lokacija:'', vremePregleda:'', napomena:'', vremeZakazivanja:'', id:''};
     localStorage.setItem('myOrders', JSON.stringify(this.orderForms));
     
-    console.log(this.orderForm.imeIPrezime);
-    console.log(this.orderForm.email);
-    console.log(this.orderForm.telefon);
-    console.log(this.orderForm.zemljaIGrad);
-    console.log(this.orderForm.usluge);
-    console.log(this.orderForm.lokacija);
-    console.log(this.orderForm.vremePregleda);
-    console.log(this.orderForm.napomena);
-    console.log(this.orderForm.vremeZakazivanja);
-    console.log(this.orderForm.id);
+    // console.log(this.orderForm.imeIPrezime);
+    // console.log(this.orderForm.email);
+    // console.log(this.orderForm.telefon);
+    // console.log(this.orderForm.zemljaIGrad);
+    // console.log(this.orderForm.usluge);
+    // console.log(this.orderForm.lokacija);
+    // console.log(this.orderForm.vremePregleda);
+    // console.log(this.orderForm.napomena);
+    // console.log(this.orderForm.vremeZakazivanja);
+    // console.log(this.orderForm.id);
 
   }
   getRandomInt(min: number, max: number): number {
