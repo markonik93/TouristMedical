@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { OrderForm } from '../orderForm';
 
 @Component({
   selector: 'app-orders',
@@ -9,7 +10,7 @@ import { Location } from '@angular/common';
 
 export class OrdersComponent implements OnInit {
   orderForms: any[] = [];
-  orderId:number=0;
+  orderForma:OrderForm=new OrderForm();
 
   constructor(private location:Location) { }
 
@@ -20,9 +21,9 @@ export class OrdersComponent implements OnInit {
   goBack(){
     this.location.back();
   }
-  orderDetails(id:number){
-    this.orderId=id;
-    console.log(id);
+  orderDetails(orderForm:OrderForm){
+    this.orderForma=orderForm;
+    console.log(this.orderForma);
 
   }
 
