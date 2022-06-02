@@ -1,62 +1,35 @@
 <div class="orders">
-    <div class="orders-center">
-        <!-- <div class="headings">
-            <div class="section">R.br.</div>
-            <div class="section">ID</div>
-            <div class="section">Korisnik</div>
-            <div class="section">Email</div>
-            <div class="section">Kontakt</div>
-            <div class="section">Mesto</div>
-            <div class="section">Usluge</div>
-            <div class="section">Lokacija ordinacije</div>
-            <div class="section">Vreme pregleda</div>
-            <div class="section">Napomena</div>
-            <div class="section">Vreme zakazivanja</div>
+    <div class="orders-center" >
+        <h3>Detalji rezervacija:</h3>
+        <div class="ordersDetail" *ngFor="let orderForm of orderForms let i=index">
+            <div>
+                <div>ID:</div>
+                <div>Korisnik:</div>
+                <div>Email:</div>
+                <div>Kontakt:</div>
+                <div>Mesto:</div>
+                <div>Usluge:</div>
+                <div>Lokacija ordinacije:</div>
+                <div>Vreme pregleda:</div>
+                <div>Napomena:</div>
+                <div>Vreme zakazivanja:</div>
+            </div>
+            <div class="right-details">
+                <div>{{orderForm.id}}</div>
+                <div>{{orderForm.imeIPrezime}}</div>
+                <div>{{orderForm.email}}</div>
+                <div>{{orderForm.telefon}}</div>
+                <div>{{orderForm.zemljaIGrad}}</div>
+                <div>{{orderForm.usluge}}</div>
+                <div>{{orderForm.lokacija}}</div>
+                <div>{{orderForm.vremePregleda}}</div>
+                <div>{{orderForm.napomena}}</div>
+                <div>{{orderForm.vremeZakazivanja}}</div>
+            </div>
         </div>
-        <div class="headings" *ngFor="let orderForm of orderForms let i=index">
-            <div class="section">{{i+1}}</div>
-            <div class="section">{{orderForm.id}}</div>
-            <div class="section">{{orderForm.imeIPrezime}}</div>
-            <div class="section">{{orderForm.email}}</div>
-            <div class="section">{{orderForm.telefon}}</div>
-            <div class="section">{{orderForm.zemljaIGrad}}</div>
-            <div class="section">{{orderForm.usluge}}</div>
-            <div class="section">{{orderForm.lokacija}}</div>
-            <div class="section">{{orderForm.vremePregleda}}</div>
-            <div class="section">{{orderForm.napomena}}</div>
-            <div class="section">{{orderForm.vremeZakazivanja}}</div>
-        </div> -->
+
 
         <!-- <table>
-            <tr class="tableHeading">
-                <th>R.br.</th>
-                <th>ID</th>
-                <th>Korisnik</th>
-                <th>Email</th>
-                <th>Kontakt</th>
-                <th>Mesto</th>
-                <th>Usluge</th>
-                <th>Lokacija ordinacije</th>
-                <th>Vreme pregleda</th>
-                <th>Napomena</th>
-                <th>Vreme zakazivanja</th>
-            </tr>
-            <tr *ngFor="let orderForm of orderForms let i=index">
-                <td>{{i+1}}</td>
-                <td>{{orderForm.id}}</td>
-                <td>{{orderForm.imeIPrezime}}</td>
-                <td>{{orderForm.email}}</td>
-                <td>{{orderForm.telefon}}</td>
-                <td>{{orderForm.zemljaIGrad}}</td>
-                <td>{{orderForm.usluge}}</td>
-                <td>{{orderForm.lokacija}}</td>
-                <td>{{orderForm.vremePregleda}}</td>
-                <td>{{orderForm.napomena}}</td>
-                <td>{{orderForm.vremeZakazivanja}}</td>
-            </tr>
-        </table> -->
-
-        <table>
             <tr class="tableHeading">
                 <th>Red.br.</th>
                 <th>Korisnik</th>
@@ -72,39 +45,33 @@
                 <td (click)="orderDetails(orderForm)" class="details">Detalji rezervacije</td>
             </tr>
         </table>
-            <!-- <div *ngFor="let orderForm of orderForms let i=index"> -->
-            <!-- <div *ngIf=" orderForm.id==[orderId]"> -->
-            <div class="headingDetailsOrder">Detalji rezervacije: </div>
-            <div class="orderDetails">
-                <div class="orderDetails-section">
-                    <label>Red.br.:</label>
-                    <label>ID:</label>
-                    <label>Korisnik:</label>
-                    <label>Email:</label>
-                    <label>Kontakt:</label>
-                    <label>Mesto:</label>
-                    <label>Usluge:</label>
-                    <label>Lokacija ordinacije:</label>
-                    <label>Vreme pregleda:</label>
-                    <label>Napomena:</label>
-                    <label>Vreme zakazivanja:</label>
-                </div>
-                <div class="orderDetails-section">
-                    <!-- <label>{{i+1}}</label> -->
-                    <label>{{orderForma.id}}</label>
-                    <label>{{orderForma.imeIPrezime}}</label>
-                    <label>{{orderForma.email}}</label>
-                    <label>{{orderForma.telefon}}</label>
-                    <label>{{orderForma.zemljaIGrad}}</label>
-                    <label>{{orderForma.usluge}}</label>
-                    <label>{{orderForma.lokacija}}</label>
-                    <label>{{orderForma.vremePregleda}}</label>
-                    <label>{{orderForma.napomena}}</label>
-                    <label>{{orderForma.vremeZakazivanja}}</label>
-                </div>
+        <div class="headingDetailsOrder">Detalji rezervacije: </div>
+        <div class="orderDetails">
+            <div class="orderDetails-section">
+                <label>ID:</label>
+                <label>Korisnik:</label>
+                <label>Email:</label>
+                <label>Kontakt:</label>
+                <label>Mesto:</label>
+                <label>Usluge:</label>
+                <label>Lokacija ordinacije:</label>
+                <label>Vreme pregleda:</label>
+                <label>Napomena:</label>
+                <label>Vreme zakazivanja:</label>
             </div>
-            <!-- </div> -->
+            <div class="orderDetails-section">
+                <label>{{orderForma.id}}</label>
+                <label>{{orderForma.imeIPrezime}}</label>
+                <label>{{orderForma.email}}</label>
+                <label>{{orderForma.telefon}}</label>
+                <label>{{orderForma.zemljaIGrad}}</label>
+                <label>{{orderForma.usluge}}</label>
+                <label>{{orderForma.lokacija}}</label>
+                <label>{{orderForma.vremePregleda}}</label>
+                <label>{{orderForma.napomena}}</label>
+                <label>{{orderForma.vremeZakazivanja}}</label>
+            </div>
+        </div> -->
 
     </div>
-    <!-- <button (click)="goBack()">Nazad</button> -->
 </div>
