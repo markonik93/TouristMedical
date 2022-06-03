@@ -84,15 +84,9 @@ export class HomepageComponent implements OnInit {
     this.orderForm.lokacija = this.medicalOrderForm.controls['lokacija'].value;
     this.orderForm.vremePregleda = this.medicalOrderForm.controls['vreme'].value;
     this.orderForm.napomena = this.medicalOrderForm.controls['inputNapomena'].value;
+    //console.log(this.orderForm);
 
-    console.log(this.orderForm);
-    if(this.orderForms==null){
-      this.orderForms=new Array();
-    }
-    this.orderForms.push(this.orderForm); 
-    
-    this.orderService.putDataInLS(this.orderForms);
-    
+    this.orderService.putDataInLS(this.orderForm);
   }
 
 
