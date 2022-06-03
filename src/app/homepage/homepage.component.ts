@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { OrderForm } from '../orderForm';
-import { Router } from '@angular/router';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-homepage',
@@ -34,11 +34,11 @@ export class HomepageComponent implements OnInit {
   get email() { return this.medicalOrderForm.get('inputEmail')!; }
 
 
-  constructor(private fb: FormBuilder, private router:Router) {
+  constructor(private fb: FormBuilder, private orderService: OrderService) {
   }
 
   ngOnInit() {
-    this.orderForms = JSON.parse(localStorage.getItem('myOrders')!);
+    this.orderForms = this.orderService.getDataFromLS();
   }
 
   onCheckboxChange(e: any) {
@@ -60,7 +60,7 @@ export class HomepageComponent implements OnInit {
 
   sendFunction(){
     this.showInputs();
-    this.putInputsInLS();
+    this.inputDataForLs();
     window.location.reload();
   }
 
@@ -72,7 +72,7 @@ export class HomepageComponent implements OnInit {
     console.log(this.medicalOrderForm.value);
   }
 
-  putInputsInLS() {
+  inputDataForLs() {
     this.orderForm = new OrderForm();
     this.orderForm.id = this.getRandomInt(1, 30);
     this.orderForm.vremeZakazivanja = new Date().toLocaleString();
@@ -90,8 +90,9 @@ export class HomepageComponent implements OnInit {
       this.orderForms=new Array();
     }
     this.orderForms.push(this.orderForm); 
-    localStorage.setItem('myOrders', JSON.stringify(this.orderForms));
-
+    
+    this.orderService.putDataInLS(this.orderForms);
+    
   }
 
 

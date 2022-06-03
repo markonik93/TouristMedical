@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { OrderForm } from '../orderForm';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-orders',
@@ -12,19 +12,15 @@ export class OrdersComponent implements OnInit {
   orderForms: any[] = [];
   orderForma:OrderForm=new OrderForm();
 
-  constructor(private location:Location) { }
+  constructor(private orderService:OrderService) { }
 
   ngOnInit(): void {
-    this.orderForms = JSON.parse(localStorage.getItem('myOrders')!);
+    this.orderForms=this.orderService.getDataFromLS();
   }
 
-  goBack(){
-    this.location.back();
-  }
   orderDetails(orderForm:OrderForm){
     this.orderForma=orderForm;
     console.log(this.orderForma);
-
   }
 
 }
