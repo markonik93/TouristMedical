@@ -7,8 +7,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { OrdersComponent } from './orders/orders.component';
-
+import { Dialog, OrdersComponent } from './orders/orders.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatNativeDateModule} from '@angular/material/core';
+import {HttpClientModule} from '@angular/common/http';
+import { MaterialExampleModule } from 'src/material.module';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,15 +21,25 @@ import { OrdersComponent } from './orders/orders.component';
     HomepageComponent,
     HeaderComponent,
     FooterComponent,
-    OrdersComponent
+    OrdersComponent,
+    Dialog
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    MatNativeDateModule,
+    AppRoutingModule,
+    MaterialExampleModule,
+    
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    
+
   ],
-  providers: [],
+  providers: [DatePipe,OrdersComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

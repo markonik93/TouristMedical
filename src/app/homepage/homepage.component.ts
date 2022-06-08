@@ -11,7 +11,7 @@ import { OrderService } from '../order.service';
 
 export class HomepageComponent implements OnInit {
 
-  orderForm?: OrderForm;
+  orderForm:any;
   orderForms: any[] = [];
   
   medicalOrderForm = this.fb.group({
@@ -32,13 +32,14 @@ export class HomepageComponent implements OnInit {
   get lokacija() { return this.medicalOrderForm.get('lokacija')!; }
   get vreme() { return this.medicalOrderForm.get('vreme')!; }
   get email() { return this.medicalOrderForm.get('inputEmail')!; }
+  get medicalForm() {return this.medicalOrderForm.valid}
 
 
   constructor(private fb: FormBuilder, private orderService: OrderService) {
   }
 
   ngOnInit() {
-    this.orderForms = this.orderService.getDataFromLS();
+    //this.orderForms = this.orderService.getDataFromLS();
   }
 
   onCheckboxChange(e: any) {
@@ -60,8 +61,15 @@ export class HomepageComponent implements OnInit {
 
   sendFunction(){
     this.showInputs();
-    this.inputDataForLs();
-    window.location.reload();
+    if(this.medicalOrderForm.valid){
+      this.inputDataForLs();
+      window.alert('Vaši podaci su uspešno prosleđeni!');
+      window.location.reload();
+    }else{
+      window.alert("Forma nije ispravno popunjena !");
+
+    }
+    
   }
 
 
@@ -73,20 +81,34 @@ export class HomepageComponent implements OnInit {
   }
 
   inputDataForLs() {
-    this.orderForm = new OrderForm();
-    this.orderForm.id = this.getRandomInt(1, 30);
-    this.orderForm.vremeZakazivanja = new Date().toLocaleString();
-    this.orderForm.imeIPrezime = this.medicalOrderForm.controls['inputImeIPrezime'].value;
-    this.orderForm.email = this.medicalOrderForm.controls['inputEmail'].value;
-    this.orderForm.telefon = this.medicalOrderForm.controls['inputTelefon'].value;
-    this.orderForm.zemljaIGrad = this.medicalOrderForm.controls['inputZemljaIGrad'].value;
-    this.orderForm.usluge = this.medicalOrderForm.controls['usluge'].value;
-    this.orderForm.lokacija = this.medicalOrderForm.controls['lokacija'].value;
-    this.orderForm.vremePregleda = this.medicalOrderForm.controls['vreme'].value;
-    this.orderForm.napomena = this.medicalOrderForm.controls['inputNapomena'].value;
+    // this.orderForm = new OrderForm();
+    // this.orderForm.id = this.getRandomInt(1, 30);
+    // this.orderForm.vremeZakazivanja = new Date().toLocaleString();
+    // this.orderForm.imeIPrezime = this.medicalOrderForm.controls['inputImeIPrezime'].value;
+    // this.orderForm.email = this.medicalOrderForm.controls['inputEmail'].value;
+    // this.orderForm.telefon = this.medicalOrderForm.controls['inputTelefon'].value;
+    // this.orderForm.zemljaIGrad = this.medicalOrderForm.controls['inputZemljaIGrad'].value;
+    // this.orderForm.usluge = this.medicalOrderForm.controls['usluge'].value;
+    // this.orderForm.lokacija = this.medicalOrderForm.controls['lokacija'].value;
+    // this.orderForm.vremePregleda = this.medicalOrderForm.controls['vreme'].value;
+    // this.orderForm.napomena = this.medicalOrderForm.controls['inputNapomena'].value;
     //console.log(this.orderForm);
+    let id=this.getRandomInt(1, 30);
+    let mojeVreme=new Date().toLocaleString();
+    this.orderForm = {id:id, 
+      vremeZakazivanja: mojeVreme, 
+      imeIPrezime : this.medicalOrderForm.controls['inputImeIPrezime'].value,
+      email : this.medicalOrderForm.controls['inputEmail'].value,
+      telefon : this.medicalOrderForm.controls['inputTelefon'].value,
+      zemljaIGrad : this.medicalOrderForm.controls['inputZemljaIGrad'].value,
+      usluge : this.medicalOrderForm.controls['usluge'].value,
+      lokacija : this.medicalOrderForm.controls['lokacija'].value,
+      vremePregleda : this.medicalOrderForm.controls['vreme'].value,
+      napomena : this.medicalOrderForm.controls['inputNapomena'].value};
+      //...this.medicalOrderForm.value};
+      console.log(this.orderForm);
 
-    this.orderService.putDataInLS(this.orderForm);
+      this.orderService.putDataInLS(this.orderForm);
   }
 
 

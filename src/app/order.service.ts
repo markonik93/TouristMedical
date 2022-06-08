@@ -10,10 +10,11 @@ export class OrderService {
   constructor() { }
 
   putDataInLS(orderForm:OrderForm){
-    console.log(orderForm);
+    this.getDataFromLS();
     if(this.orderForms==null){
       this.orderForms=new Array();
     }
+
     this.orderForms.push(orderForm); 
     localStorage.setItem('myOrders', JSON.stringify(this.orderForms));
   }
