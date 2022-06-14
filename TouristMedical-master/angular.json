@@ -131,8 +131,5 @@
       }
     }
   },
-  "defaultProject": "TouristMedical",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "TouristMedical"
 }

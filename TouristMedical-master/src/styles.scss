@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+// @font-face{
+//     font-family: Montserrat;
+//     font-style: normal;
+//     font-weight: 400;
+//     src: local("Montserrat") url(../src/assets/fonts/Montserrat-Thin.ttf) format('truetype');
+// }
+$pinkcolour: #af376d;
+
+body{
+    margin: 0;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
