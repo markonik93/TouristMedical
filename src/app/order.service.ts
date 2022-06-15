@@ -5,7 +5,6 @@ import { OrderForm } from './orderForm';
 })
 export class OrderService {
   orderForms:any[]=[];
-  //orderForm:OrderForm;
 
   constructor() { }
 
@@ -17,6 +16,16 @@ export class OrderService {
 
     this.orderForms.push(orderForm); 
     localStorage.setItem('myOrders', JSON.stringify(this.orderForms));
+  }
+  addCommentInLs(komentar:string, id:number){
+    for(let i=0;i<this.orderForms.length;i++){
+      if(this.orderForms[i].id==id){
+        this.orderForms[i].inputKomentar=komentar;
+        console.log(this.orderForms[i].komentar);
+        localStorage.setItem('myOrders', JSON.stringify(this.orderForms));
+      }
+    }
+    
   }
 
   getDataFromLS(){

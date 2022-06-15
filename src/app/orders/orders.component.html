@@ -13,7 +13,7 @@
                 <div>Vreme pregleda:</div>
                 <div>Napomena:</div>
                 <div>Vreme zakazivanja:</div>
-                <div *ngIf="komentar">Komentar: </div>
+                <div *ngIf="orderForm.inputKomentar">Komentar: </div>
             </div>
             <div class="right-details">
                 <div>{{orderForm.id}}</div>
@@ -26,9 +26,9 @@
                 <div>{{orderForm.vremePregleda}}</div>
                 <div>{{orderForm.napomena}}</div>
                 <div>{{orderForm.vremeZakazivanja}}</div>
-                <div *ngIf="komentar">{{komentar}</div>
+                <div *ngIf="orderForm.inputKomentar">{{orderForm.inputKomentar}}</div>
             </div>
-            <div class="komentar" mat-raised-button (click)="openDialog()">Dodajte komentar...</div>
+            <div class="komentar" mat-raised-button (click)="openDialog(orderForm.id)">Dodajte komentar...</div>
         </div>
 
 
