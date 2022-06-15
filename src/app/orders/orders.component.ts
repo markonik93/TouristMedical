@@ -16,7 +16,7 @@ export interface DialogData {
 export class OrdersComponent implements OnInit {
   orderForms: any[] = [];
   orderForma:OrderForm=new OrderForm();
-  
+  komentar:any;
   
 
   constructor(private orderService:OrderService, public dialog:MatDialog) { }
@@ -27,12 +27,12 @@ export class OrdersComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(Dialog, {
       width: '250px',
-      data: {komentar: this.orderForma.inputKomentar},
+      data: {komentar: this.komentar},
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
-      this.orderForma.inputKomentar = result;
+      this.komentar = result;
     });
   }
   
