@@ -64,10 +64,10 @@
                         formControlName="inputPassword">
                     <div class="errorClass" *ngIf="password.invalid && (password.dirty || password.touched)">
                         <div class="errorClass" *ngIf="password.errors?.['required']">
-                            Password je obavezan!
+                            Lozinka je obavezna!
                         </div>
                         <div class="errorClass" *ngIf="password.errors?.['pattern']">
-                            Password mora sadržati jedno veliko slovo, mala slova, jednu cifru i specijalan znak!
+                            Lozinka mora sadržati jedno veliko slovo, mala slova, jednu cifru i specijalan znak!
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,9 @@
                     <div class="errorClass"
                         *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)">
                         <div class="errorClass" *ngIf="repeatPassword.errors?.['required']">
-                            Obavezno je ponoviti password!
+                            Obavezno je ponoviti lozinku!
                         </div>
-                        <div *ngIf="registeredForm.get('confirmPassword').errors?.['mismatch']">Password Confirmation must match password</div>
+                        <div class="errorClass" *ngIf="registeredForm.get('inputRepeatPassword').errors?.['mismatch']">Lozinke se ne poklapaju!</div>
                     </div>
                    
                 </div>
