@@ -1,0 +1,12 @@
+@import "../../assets/regILogin.scss";
+
+.inputError{
+    display: flex;
+    flex-direction: column;
+}
+.header span{
+    color: $pinkcolour;
+    font-size: small;
+    justify-self: flex-end;
+}
+

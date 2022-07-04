@@ -1,17 +1,20 @@
 <div class="header-main">
     <div class="header-content">
         <div class="header-left">
-            <div class="logo-image"><a href="https://sharebico.rs/category/medicinske-usluge"><img src="../../assets/logo.svg"></a></div>
-            <div class="rs">.rs</div>        
+            <div class="logo-image"><a href="../homepage"><img src="../../assets/logo.svg"></a></div>
+            <div class="rs">.rs</div>
         </div>
 
         <div class="header-right">
             <a class="button rez" (click)="goOnOrders()">Pronađi moje rezervacije kao gost</a>
-            <a href="https://sharebico.rs/login" class="button ulog">Ulogujte se</a>
-            <a href="https://sharebico.rs/register" class="button reg">Registrujte se</a>
+            <div *ngIf="!ulogovan">
+                <a class="button ulog" (click)="goOnLogIn()">Ulogujte se</a>
+                <a class="button reg" (click)="goOgRegistration()">Registrujte se</a>
+            </div>
+            <div *ngIf="ulogovan!=null">
+                <a class="button ulog" (click)="goOnProfile()">{{ulogovan.inputImeIPrezime}}</a>
+                <a class="button odjavi" (click)="logOut()">Odjavite se</a>
+            </div>
         </div>
     </div>
 </div>
-
-
-<!-- <p>header works!</p> -->

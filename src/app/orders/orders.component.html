@@ -1,7 +1,18 @@
 <div class="orders">
-    <div class="orders-center" >
-        <h3>Detalji rezervacija:</h3>
-        <div class="ordersDetail" *ngFor="let orderForm of orderForms let i=index">
+    <div class="orders-center">
+        <div class="orders-header">
+            <div class="detalji">Detalji rezervacija:</div>
+            <div class="detalji-right">
+                <div class="filter" (click)="filter('Protetika')">Protetika</div>
+                <div class="filter" (click)="filter('Implanti')">Implanti</div>
+                <div class="filter" (click)="filter('Lecenje zuba')">Lecenje zuba</div>
+                <div class="sort" (click)="sortFunction('R')">Rastuce</div>
+                <div class="sort" (click)="sortFunction('O')">Opadajuce</div>
+            </div>
+
+
+        </div>
+        <div class="ordersDetail" *ngFor="let orderForm of filteredOrderForms let i=index">
             <div class="left-details">
                 <div>ID:</div>
                 <div>Korisnik:</div>
@@ -13,7 +24,7 @@
                 <div>Vreme pregleda:</div>
                 <div>Napomena:</div>
                 <div>Vreme zakazivanja:</div>
-                <div *ngIf="orderForm.inputKomentar">Komentar: </div>
+                <div *ngIf="orderForm.inputKomentar">Komentari : </div>
             </div>
             <div class="right-details">
                 <div>{{orderForm.id}}</div>
@@ -26,9 +37,14 @@
                 <div>{{orderForm.vremePregleda}}</div>
                 <div>{{orderForm.napomena}}</div>
                 <div>{{orderForm.vremeZakazivanja}}</div>
-                <div *ngIf="orderForm.inputKomentar">{{orderForm.inputKomentar}}</div>
+                <div *ngIf="orderForm.inputKomentar && orderForm.inputKomentar.length>0">
+                    <div *ngFor="let komentar of orderForm.inputKomentar">
+                        {{komentar}}
+                    </div>
+
+                </div>
             </div>
-            <div class="komentar" mat-raised-button (click)="openDialog(orderForm.id)">Dodajte komentar...</div>
+            <div *ngIf="ulogovani" class="komentar" mat-raised-button (click)="openDialog(orderForm.id)">Dodajte komentar...</div>
         </div>
 
 

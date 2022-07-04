@@ -1,12 +1,12 @@
-<h3>Komenatr: </h3>
+<h3>Komentar: </h3>
 <div mat-dialog-content >
     <p>Ostavite svoj komentar:</p>
     <mat-form-field appearance="fill">
         <mat-label>Vaš komentar :</mat-label>
-        <textarea matInput [(ngModel)]="data.komentar" rows="4" column="80"></textarea>
+        <textarea matInput [formControl]="form" rows="4" column="80"></textarea>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onOdustaniteClick()">Odustanite</button>
-    <button mat-button [mat-dialog-close]="data.komentar" cdkFocusInitial  (click)="sacuvajDialog()">Sacuvajte</button>
+    <button mat-button cdkFocusInitial  (click)="sacuvajDialog()">Sacuvajte</button>
 </div>

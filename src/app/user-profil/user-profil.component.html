@@ -1,0 +1,91 @@
+<div class="registration">
+
+    <div class="center">
+        <div class="header">Vaši podaci su: </div>
+
+        <div class="promena">
+            <div *ngIf="promenljiv==false" class="data">
+                <div class="section">
+                    <div class="label">Ime i prezime: </div>
+                    <div class="value">{{ulogovani.inputImeIPrezime}}</div>
+                </div>
+                <div class="section">
+                    <div class="label">Username:</div>
+                    <div class="value">{{ulogovani.inputUsername}}</div>
+                </div>
+                <div class="section">
+                    <div class="label">Telefon:</div>
+                    <div class="value">{{ulogovani.inputPhone}}</div>
+                </div>
+                <div class="section">
+                    <div class="label">Adresa:</div>
+                    <div class="value">{{ulogovani.inputAdress}}</div>
+                </div>
+                <!-- <div class="reset" (click)="resetPassword()">Promenite password</div> -->
+                <div class="section-buttons">
+                    <button class="button odustani" (click)="odustanite()">Odustanite</button>
+                    <button class="button send" (click)="promenite()">Promenite</button>
+                </div>
+            </div>
+            <div *ngIf="!resset" class="changePass">
+                <button class="button" (click)="promeniPassword()">Promenite Password</button>
+            </div>
+            <div *ngIf="resset" class="data" [formGroup]="reserPassForm">
+                <div class="section">
+                    <div class="label">Unesite staru lozinku: </div>
+                    <input class="input" type="password" placeholder="Unesite staru lozinku..."
+                        formControlName="oldPass">
+                </div>
+                <div class="section">
+                    <div class="label">Unesite novu lozinku: </div>
+                    <input class="input" type="password" placeholder="Unesite novu lozinku..."
+                        formControlName="newPass">
+                </div>
+                <div class="section">
+                    <div class="label">Potvrdite novu lozinku: </div>
+                    <input class="input" type="password" placeholder="Potvrdite novu lozinku..."
+                        formControlName="repeatPass">
+                </div>
+                <div class="section-buttons">
+                    <button class="button odustani" (click)="odustaniteOdPromene()">Odustanite</button>
+                    <button class="button send" (click)="promenitePass(oldPass,newPass,repeatPass)">Promenite</button>
+                </div>
+
+            </div>
+
+
+
+            <div *ngIf="promenljiv==true" class="data" [formGroup]="profileForm">
+                <div class="section">
+                    <div class="label">Ime i prezime: </div>
+                    <input class="input" type="text" placeholder="Unesite Vaše ime i prezime..."
+                        formControlName="imeIPrezime">
+                </div>
+                <div class="section">
+                    <div class="label">Username: </div>
+                    <input class="input" type="text" placeholder="Unesite username..." formControlName="username">
+                </div>
+                <div class="section">
+                    <div class="label">Telefon: </div>
+                    <input class="input" type="text" placeholder="Unesite telefon..." formControlName="phone">
+                </div>
+                <div class="section">
+                    <div class="label">Adresa: </div>
+                    <input class="input" type="text" placeholder="Unesite adresu..." formControlName="adress">
+                </div>
+                <!-- <div class="reset" (click)="resetPassword()">Promenite password</div> -->
+                <div class="section-buttons">
+                    <button class="button odustani" (click)="odustanite()">Odustanite</button>
+                    <button class="button send" (click)="posaljite()">Pošaljite</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="registration">
+
+    <div class="center">
+        <div class="header">Registrujte se: &nbsp;&nbsp;&nbsp;<span><sup>*obavezna su sva polja</sup></span></div>
+
+        <div class="data" [formGroup]="registeredForm">
+
+            <div class="section">
+                <div class="label">Ime i prezime: </div>
+                <div class="inputError">
+                    <input class="input" type="text" placeholder="Unesite Vaše ime i prezime..."
+                        formControlName="inputImeIPrezime">
+                    <div class="errorClass" *ngIf="imeIPrezime.invalid && (imeIPrezime.dirty || imeIPrezime.touched)">
+                        <div *ngIf="imeIPrezime.errors?.['required']">
+                            Ime je obavezno!
+                        </div>
+                        <div *ngIf="imeIPrezime.errors?.['minlength']">
+                            Ime ne sme biti krace od 4 karaktera!
+                        </div>
+                        <div *ngIf="imeIPrezime.errors?.['pattern']">
+                            Ime sme da sadrži samo slova!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="label">Unesite E-mail:</div>
+                <div class="inputError">
+                    <input class="input" type="text" placeholder="Unesite E-mail..." formControlName="inputEmail">
+                    <div class="errorClass" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email.errors?.['required']">
+                            Email je obavezan!
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']">
+                            Pogrešan format unetog E-mail-a!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="label">Unesite username: </div>
+                <div class="inputError">
+                    <input class="input" type="text" placeholder="Unesite username..." formControlName="inputUsername">
+                    <div class="errorClass" *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div class="errorClass" *ngIf="username.errors?.['required']">
+                            Username je obavezan!
+                        </div>
+                        <div class="errorClass" *ngIf="username.errors?.['pattern']">
+                            Neispravan username format!
+                        </div>
+                        <div class="errorClass" *ngIf="username.errors?.['minlength']">
+                            Mora imati mminimum 6 karaktera!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="label">Unesite password: </div>
+                <div class="inputError">
+                    <input class="input" type="password" placeholder="Unesite password..."
+                        formControlName="inputPassword">
+                    <div class="errorClass" *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div class="errorClass" *ngIf="password.errors?.['required']">
+                            Password je obavezan!
+                        </div>
+                        <div class="errorClass" *ngIf="password.errors?.['pattern']">
+                            Password mora sadržati jedno veliko slovo, mala slova, jednu cifru i specijalan znak!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="label">Ponovite password: </div>
+                <div class="inputError">
+                    <input class="input" type="password" placeholder="Ponovite password..."
+                        formControlName="inputRepeatPassword">
+                    <div class="errorClass"
+                        *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)">
+                        <div class="errorClass" *ngIf="repeatPassword.errors?.['required']">
+                            Obavezno je ponoviti password!
+                        </div>
+                        <div *ngIf="registeredForm.get('confirmPassword').errors?.['mismatch']">Password Confirmation must match password</div>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="label">Unesite telefon: </div>
+                <div class="inputError">
+                    <input class="input" type="text" placeholder="Unesite telefon..." formControlName="inputPhone">
+                    <div class="errorClass" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                        <div *ngIf="phone.errors?.['required']">
+                            Telefon je obavezan!
+                        </div>
+                        <div class="errorClass" *ngIf="phone.errors?.['pattern']">
+                            Telefon moze sadržati samo cifre!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="label">Unesite adresu: </div>
+                <div class="inputError">
+                    <input class="input" type="text" placeholder="Unesite adresu..." formControlName="inputAdress">
+                    <div class="errorClass" *ngIf="adress.invalid && (adress.dirty || adress.touched)">
+                        <div class="errorClass" *ngIf="adress.errors?.['required']">
+                            Adresa je obavezna!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goToLogin" (click)="goToLogin()">Već ste registrovani? Ulogijte se</div>
+            <div class="section-buttons">
+                <!-- <button class="button odustani" (click)="odustanite()">Odustanite</button> -->
+                <button class="button send" (click)="sendReg()">Registrujte se</button>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

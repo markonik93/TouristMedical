@@ -1,5 +1,4 @@
 .footer{
-    //position: absolute;
     display: flex;
     top: 1817px;
     left: 0;
@@ -9,6 +8,7 @@
     background-color: #f7f7f7;
     justify-content: center;
 }
+
 .footer-center{
     position: relative;
     display: flex;
@@ -16,6 +16,7 @@
     border-top: 2px solid #DEDEDE;
     justify-content: center;
 }
+
 .footer-up{
     position: absolute;
     display: flex;
@@ -25,19 +26,22 @@
     padding-top: 50px;
     justify-content: space-between;
 }
+
 .footer-sec{
     display: flex;
-    //border: 1px solid red;
     flex-direction: column;
 }
+
 .footer-sec a:hover{
     color: #af376d;
     cursor: pointer;
 }
+
 .item{
     margin: 10px 0;
     color: #777777;
 }
+
 .footer-down{
     position: absolute;
     display: flex;

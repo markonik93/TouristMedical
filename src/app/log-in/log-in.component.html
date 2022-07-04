@@ -1,0 +1,46 @@
+<div class="registration">
+    <div class="center">
+        <div class="header">Ulogujte se: </div>
+        <div class="data" [formGroup]="loggedInForm">
+            <div class="section">
+                <div class="label">Unesite E-mail:</div>
+                <div class="inputError">
+                    <input class="input" type="text" placeholder="Unesite E-mail..." formControlName="inputEmail">
+                    <div class="errorClass" *ngIf="emailLogin.invalid && (emailLogin.dirty || emailLogin.touched)">
+                        <div *ngIf="emailLogin.errors?.['required']">
+                            Niste uneli Email.
+                        </div>
+                        <div *ngIf="emailLogin.errors?.['pattern']">
+                            Neispravan format Email-a.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="label">Unesite password: </div>
+                <div class="inputError">
+                    <input class="input" type="password" placeholder="Unesite password..."
+                        formControlName="inputPassword">
+                    <div class="errorClass"
+                        *ngIf="passwordLogin.invalid && (passwordLogin.dirty || passwordLogin.touched)">
+                        <div *ngIf="passwordLogin.errors?.['required']">
+                            Niste uneli password.
+                        </div>
+                        <div *ngIf="passwordLogin.errors?.['pattern']">
+                            Neispravan format password-a.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="labels">
+                <div class="goToLogin" (click)="goToReg()">Niste se registrovali? Registrujte se</div>
+                <div class="goToLogin" (click)="goToResetPassword()">Zaboravili ste lozinku?</div>
+            </div>
+            <div class="section-buttons">
+                <!-- <button class="button odustani" (click)="odustanite()">Odustanite</button> -->
+                <button class="button send" (click)="sendLogIn()">Ulogujte se</button>
+            </div>
+        </div>
+
+    </div>
+</div>
