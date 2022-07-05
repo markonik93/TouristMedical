@@ -36,15 +36,13 @@ export class OrdersComponent implements OnInit {
     this.orderForms = this.orderService.getDataFromLS();
     this.filteredOrderForms = this.orderForms;
     this.ulogovani = this.loginService.getDataFromLS();
-
-
+    
     this.ulogovan = this.loginService.getLoggedUser().subscribe((result) => {
     this.ulogovani = result;
     });
   }
-  // onChange():void {
-  //   this.filterUsluga(this.usluga.value);
-  // }
+ 
+
 
 
   openDialog(id: number): void {
@@ -70,25 +68,24 @@ export class OrdersComponent implements OnInit {
   //   this.orderForma = orderForm;
   //   console.log(this.orderForma);
   // }
-  sortFunction(S: string) {
-    if (S == 'R') {
+  sortFunction() {
+    if (this.sortiranje.value == 'R') {
       this.orderForms = this.orderForms.sort((a, b) => (a.imeIPrezime > b.imeIPrezime) ? 1 : -1);
-    } else if (S == 'O') {
+      this.filterUsluga();
+    } else if (this.sortiranje.value == 'O') {
       this.orderForms = this.orderForms.sort((a, b) => (a.imeIPrezime > b.imeIPrezime) ? -1 : 1);
+      this.filterUsluga();
     }
   }
-  filterUsluga(usluga: string) {
+  filterUsluga() {
     this.filteredOrderForms = [];
     for (let i = 0; i < this.orderForms.length; i++) {
       for (let j = 0; j < this.orderForms[i].usluge.length; j++) {
-        if (this.orderForms[i].usluge[j] == usluga) {
+        if (this.orderForms[i].usluge[j] == this.usluga.value) {
           this.filteredOrderForms.push(this.orderForms[i]);
         }
       }
     }
-    // this.filteredOrderForms = this.orderForms
-    //                             .filter((orderForm) => orderForm.usluge == usluga);
-    // this.orderForms = this.filteredOrderForms;
   }
 
 }
