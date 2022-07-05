@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, FormControl,  ValidatorFn, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
+import { retypeConfirm } from '../validators';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +17,7 @@ export class RegistrationComponent implements OnInit {
     inputEmail: ['', [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     inputUsername:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$"),Validators.minLength(6)]],
     inputPassword:['',[Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]],
-    inputRepeatPassword:['',[Validators.required,this.retypeConfirm('inputPassword')]],
+    inputRepeatPassword:['',[Validators.required,retypeConfirm('inputPassword')]],
     inputPhone:['',[Validators.required, Validators.pattern("^[+-/ 0-9]*$")]],
     inputAdress:['',[Validators.required]],
   });
@@ -59,13 +60,6 @@ export class RegistrationComponent implements OnInit {
     this.router.navigate(['/homepage']);
   }
 
-  retypeConfirm(inputPassword: string): ValidatorFn {
-    return (control: FormControl) => {
-      if (!control || !control.parent) {
-        return null;
-      }
-      return control.parent.get(inputPassword).value === control.value ? null : { mismatch: true };
-    };
-  }
+  
 
 }

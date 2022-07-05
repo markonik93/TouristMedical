@@ -1,10 +1,11 @@
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
+import { retypeConfirm } from '../validators';
 
 @Component({
   selector: 'app-user-profil',
@@ -25,9 +26,9 @@ export class UserProfilComponent implements OnInit {
     adress: ['', []],
   });
   reserPassForm = this.fb.group({
-    oldPass: ['', []],
-    newPass: ['', []],
-    repeatPass: ['', []],
+    oldPass: ['', [Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]],
+    newPass: ['', [Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]],
+    repeatPass: ['', [Validators.required,retypeConfirm('newPass')]],
   });
 
   get oldPass() { return this.reserPassForm.get('oldPass')!; }

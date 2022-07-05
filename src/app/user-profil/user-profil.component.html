@@ -35,16 +35,40 @@
                     <div class="label">Unesite staru lozinku: </div>
                     <input class="input" type="password" placeholder="Unesite staru lozinku..."
                         formControlName="oldPass">
+                    <div class="errorClass" *ngIf="oldPass.invalid && (oldPass.dirty || oldPass.touched)">
+                        <div class="errorClass" *ngIf="oldPass.errors?.['required']">
+                            Stara lozinka je obavezna!
+                        </div>
+                        <div class="errorClass" *ngIf="oldPass.errors?.['pattern']">
+                            Neispravan format!
+                        </div>
+                    </div>
                 </div>
                 <div class="section">
                     <div class="label">Unesite novu lozinku: </div>
                     <input class="input" type="password" placeholder="Unesite novu lozinku..."
                         formControlName="newPass">
+                    <div class="errorClass" *ngIf="newPass.invalid && (newPass.dirty || newPass.touched)">
+                        <div class="errorClass" *ngIf="newPass.errors?.['required']">
+                            Nova lozinka je obavezna!
+                        </div>
+                        <div class="errorClass" *ngIf="newPass.errors?.['pattern']">
+                            Neispravan format!
+                        </div>
+                    </div>
                 </div>
                 <div class="section">
                     <div class="label">Potvrdite novu lozinku: </div>
                     <input class="input" type="password" placeholder="Potvrdite novu lozinku..."
                         formControlName="repeatPass">
+                    <div class="errorClass" *ngIf="repeatPass.invalid && (repeatPass.dirty || repeatPass.touched)">
+                        <div class="errorClass" *ngIf="repeatPass.errors?.['required']">
+                            Obavezno je ponoviti lozinku!
+                        </div>
+                        <div class="errorClass" *ngIf="reserPassForm.get('repeatPass').errors?.['mismatch']">
+                            Lozinke se ne poklapaju!</div>
+                    </div>
+
                 </div>
                 <div class="section-buttons">
                     <button class="button odustani" (click)="odustaniteOdPromene()">Odustanite</button>

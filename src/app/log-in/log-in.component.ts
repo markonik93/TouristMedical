@@ -47,9 +47,9 @@ export class LogInComponent implements OnInit {
           this.logInService.putDataInLs(userLogin);
           this.router.navigate(['/profile']);
           this.logInSucsses=true;
-        }else this.logInSucsses=false;
+        }//else this.logInSucsses=false;
       }
-      if(this.logInSucsses==false){
+      if(this.logInSucsses!=true){
         window.alert('Neispravni kredencijali!');
       }
 

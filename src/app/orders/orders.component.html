@@ -3,11 +3,41 @@
         <div class="orders-header">
             <div class="detalji">Detalji rezervacija:</div>
             <div class="detalji-right">
-                <div class="filter" (click)="filter('Protetika')">Protetika</div>
-                <div class="filter" (click)="filter('Implanti')">Implanti</div>
-                <div class="filter" (click)="filter('Lecenje zuba')">Lecenje zuba</div>
+                <div class="filter">
+                    <label for="usluga" >Usluga:</label>
+                    <select name="usluga" [formControl]="usluga" >
+                       <option value="Protetika">Protetika</option> 
+                       <option value="Implanti">Implanti</option>
+                       <option value="Lecenje zuba">Lečenje zuba</option>
+                       <option value="Ostalo">Ostalo</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="usluga">Lokacija:</label>
+                    <select name="usluga">
+                       <option value="Beograd">Beograd</option>
+                       <option value="Nis">Niš</option>
+                       <option value="Novi Sad">Novi Sad</option>
+                       <option value="Jagodina">Jagodina</option>
+                       <option value="Subotica">Subotica</option>
+                       <option value="Leskovac">Leskovac</option>
+                       <option value="Vranje">Vranje</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="Status">Poređaj:</label>
+                    <select name="status">
+                       <option value="R">Rastuće</option>
+                       <option value="O">Opadajuće</option>
+                    </select>
+                </div>
+
+
+                <!-- <div class="filter" (click)="filterUsluga('Protetika')">Protetika</div>
+                <div class="filter" (click)="filterUsluga('Implanti')">Implanti</div>
+                <div class="filter" (click)="filterUsluga('Lecenje zuba')">Lecenje zuba</div>
                 <div class="sort" (click)="sortFunction('R')">Rastuce</div>
-                <div class="sort" (click)="sortFunction('O')">Opadajuce</div>
+                <div class="sort" (click)="sortFunction('O')">Opadajuce</div> -->
             </div>
 
 
