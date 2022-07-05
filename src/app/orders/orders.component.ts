@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DialogComponent } from '../dialog/dialog.component';
 import { LoginService } from '../login.service';
 import { User } from '../user';
@@ -19,14 +19,18 @@ export interface DialogData {
 })
 
 export class OrdersComponent implements OnInit {
+
   orderForms: any[] = [];
   filteredOrderForms: any[] = [];
   ulogovani: User;
   komentari: any[][];
   ulogovan: Subscription;
 
+  usluga=new FormControl('');
+  lokacija= new FormControl('');
+  sortiranje=new FormControl('');
 
-  constructor(private orderService: OrderService, public dialog: MatDialog, private loginService: LoginService) { }
+  constructor(private orderService: OrderService, public dialog: MatDialog, private loginService: LoginService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.orderForms = this.orderService.getDataFromLS();
@@ -35,9 +39,12 @@ export class OrdersComponent implements OnInit {
 
 
     this.ulogovan = this.loginService.getLoggedUser().subscribe((result) => {
-      this.ulogovani = result;
+    this.ulogovani = result;
     });
   }
+  // onChange():void {
+  //   this.filterUsluga(this.usluga.value);
+  // }
 
 
   openDialog(id: number): void {
@@ -70,7 +77,7 @@ export class OrdersComponent implements OnInit {
       this.orderForms = this.orderForms.sort((a, b) => (a.imeIPrezime > b.imeIPrezime) ? -1 : 1);
     }
   }
-  filter(usluga: string) {
+  filterUsluga(usluga: string) {
     this.filteredOrderForms = [];
     for (let i = 0; i < this.orderForms.length; i++) {
       for (let j = 0; j < this.orderForms[i].usluge.length; j++) {
